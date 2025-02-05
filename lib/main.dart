@@ -1,4 +1,4 @@
-import 'package:admin/features/categories/categories.dart';
+import 'package:admin/features/categories/view/categories_screen.dart';
 import 'package:admin/features/categories/providers/category_provider.dart';
 import 'package:admin/features/categories/repositories/category_repository.dart';
 import 'package:admin/features/dashboard/controller/dashboard_provider.dart';

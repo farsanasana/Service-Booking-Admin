@@ -133,4 +133,34 @@ class CategoryProvider extends ChangeNotifier {
       rethrow;
     }
   }
+Future<void> updateService(String categoryId, String serviceId, Service updatedService) async {
+    try {
+      await _repository.updateService(categoryId, serviceId, updatedService);
+      final services = _categoryServices[categoryId];
+      if (services != null) {
+        final index = services.indexWhere((service) => service.id == serviceId);
+        if (index != -1) {
+          services[index] = updatedService;
+          notifyListeners();
+        }
+      }
+    } catch (e) {
+      _error = e.toString();
+      notifyListeners();
+      rethrow;
+    }
+  }
+
+  Future<void> deleteService(String categoryId, String serviceId) async {
+    try {
+      await _repository.deleteService(categoryId, serviceId);
+      _categoryServices[categoryId]?.removeWhere((service) => service.id == serviceId);
+      notifyListeners();
+    } catch (e) {
+      _error = e.toString();
+      notifyListeners();
+      rethrow;
+    }
+  }
+  
 }

@@ -46,7 +46,7 @@ dependencies:
   provider: ^6.1.2
   fl_chart: ^0.70.1
   intl: ^0.20.1
-  file_picker: ^8.1.7
+  file_picker: ^8.3.1
 
 dev_dependencies:
   flutter_test:

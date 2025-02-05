@@ -3,9 +3,9 @@ import '../model/category_model.dart';
 import '../model/service_model.dart';
 
 class CategoryRepository {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore;
 
-  CategoryRepository(FirebaseFirestore instance);
+  CategoryRepository(this._firestore);
 
   // Categories CRUD Operations
   Future<List<Category>> fetchCategories() async {
@@ -148,4 +148,6 @@ class CategoryRepository {
       throw Exception('Failed to delete service: $e');
     }
   }
+
+  
 }
